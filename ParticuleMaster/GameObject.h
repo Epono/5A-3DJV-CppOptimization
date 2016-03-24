@@ -16,8 +16,14 @@ protected:
 public:
 	GameObject() : m_name("go") {}
 	GameObject(std::string name) : m_name(name) {}
-	~GameObject() { for each (auto component in m_components) { component->~Component(); } }
+	~GameObject() 
+	{ 
+		for(auto component : m_components)
+			component->~Component();
+	}
 
+
+	GameObject* operator new(){ return Allocateur::allocate(); }
 	void AddComponent(Component* component);
 	void Update();
 };
