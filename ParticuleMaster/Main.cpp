@@ -3,7 +3,7 @@
 #include <thread>
 #include <vector>
 
-
+#include "ThreadManager.h"
 
 //Multithreading
 //Boss Working
@@ -12,40 +12,6 @@ int threadAliveCounter = 0;
 int maxThread = 4;
 std::vector<std::thread> listOfThread;
 
-
-
-
-void pool_base() /* All workers */
-{
-	bool endAll = false;
-	char c;
-
-
-	while (!endAll)
-	{
-		//wait call from Boss
-
-		//dequeue a work request
-
-		//switch
-		// case request X : taskX()
-		// case request Y : taskY()
-
-		switch (c)
-		{
-		case '1':
-		{
-			//task1;
-			break;
-		}
-		default:
-		{
-			break;
-		}
-		}
-	}
-
-}
 
 
 
@@ -86,7 +52,7 @@ void CreateParticle(int _threadNumber, int _numberOfParticles)
 	std::cout << "Thread " << _threadNumber << " finished\n";
 }
 
-
+/*
 bool CreateThread()
 {
 	bool isCorrect = false;
@@ -115,29 +81,18 @@ void ThreadPoolManager()
 	std::cout << "Il y a " << threadAliveCounter << " existants ! " << std::endl;
 
 }
+*/
 
 void main()
 {
-	ThreadPoolManager();
+	
+	ThreadManager *  myManager = new ThreadManager();
+	//myManager->ThreadUpdate();
+	//std::thread tr(CreateParticle, 0, _256k);
+	
 
 
-
-
-	/*
-
-	//THE BOSS
-	for (int i = 0; i < maxThread; ++i)
-	{
-		//pthread_create(pool_base)
-		while (true)
-		{
-			//getRequest
-			//putRequestinWorkingQueue
-			//signal sleeping threads that work is available
-		}
-
-	}
-	*/
+	
 
 
 
