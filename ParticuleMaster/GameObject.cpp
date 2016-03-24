@@ -1,13 +1,9 @@
 #include "GameObject.h"
 
-GameObject::GameObject(std::string name)
-{
-	// TODO: Initialiser comme il faut
-}
-
 void GameObject::AddComponent(Component* component)
 {
-	// TODO: Ajoute un composant au vector
+	m_components.emplace_back(component);
+	component->SetGameObject(this);
 }
 
 void GameObject::Update()
@@ -16,9 +12,4 @@ void GameObject::Update()
 	{
 		component->Update();
 	}
-}
-
-GameObject::~GameObject()
-{
-	// TODO: détruire ce qu'il faut
 }
