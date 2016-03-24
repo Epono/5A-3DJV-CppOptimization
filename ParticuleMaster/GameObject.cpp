@@ -1,12 +1,14 @@
 #include "GameObject.h"
 
-
-
-GameObject::GameObject()
+void GameObject::AddComponent(Component* component)
 {
+	m_components.emplace_back(component);
 }
 
-
-GameObject::~GameObject()
+void GameObject::Update()
 {
+	for each (auto component in m_components)
+	{
+		component->Update();
+	}
 }
