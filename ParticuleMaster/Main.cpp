@@ -3,26 +3,12 @@
 #include <thread>
 #include <vector>
 
+#include "Particle.h"
+
 #define _256k 262144
 #define _64k 65536
 
 int threadcounter = 0;
-
-//Particles
-
-struct Particle
-{
-	int posX, posY;
-	int ID;
-	
-	Particle()
-	{
-		posX = 0;
-		posY = 0;
-		
-	}
-};
-
 
 //ThreadMAX 4
 
