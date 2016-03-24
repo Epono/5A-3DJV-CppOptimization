@@ -2,13 +2,16 @@
 
 void Particle::Update()
 {
-	velocity.x += (((double) rand() / (RAND_MAX)) - 0.5) / 10;
-	velocity.y += (((double) rand() / (RAND_MAX)) - 0.5) / 10;
-	velocity.z += (((double) rand() / (RAND_MAX)) - 0.5) / 10;
-
 	m_transform.m_position.x += velocity.x;
 	m_transform.m_position.y += velocity.y;
 	m_transform.m_position.z += velocity.z;
+
+	if(m_transform.m_position.x > CUBE_RADIUS || m_transform.m_position.x < -CUBE_RADIUS)
+		velocity.x = -velocity.x;
+	if(m_transform.m_position.y > CUBE_RADIUS || m_transform.m_position.y < -CUBE_RADIUS)
+		velocity.y = -velocity.y;
+	if(m_transform.m_position.z > CUBE_RADIUS || m_transform.m_position.z < -CUBE_RADIUS)
+		velocity.z = -velocity.z;
 
 	GameObject::Update();
 }
