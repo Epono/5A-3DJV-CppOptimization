@@ -14,6 +14,7 @@ protected:
 	std::vector<Component*> m_components;
 
 public:
+	GameObject() : m_name("go") {}
 	GameObject(std::string name) : m_name(name) {}
 	~GameObject() { for each (auto component in m_components) { component->~Component(); } }
 
