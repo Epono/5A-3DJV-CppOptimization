@@ -7,8 +7,6 @@ void GameObject::AddComponent(Component* component)
 
 void GameObject::Update()
 {
-	for each (auto component in m_components)
-	{
+	for(auto component : m_components)
 		component->Update();
-	}
 }
