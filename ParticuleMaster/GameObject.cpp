@@ -12,7 +12,10 @@ void GameObject::AddComponent(Component* component)
 
 void GameObject::Update()
 {
-	// TODO: Update chacun des composants
+	for each (auto component in m_components)
+	{
+		component->Update();
+	}
 }
 
 GameObject::~GameObject()

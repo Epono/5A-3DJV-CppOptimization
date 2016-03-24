@@ -3,6 +3,7 @@ class Component
 {
 public:
 	Component();
-	virtual void Update() = 0;
 	~Component();
+
+	virtual void Update() = 0;
 };
