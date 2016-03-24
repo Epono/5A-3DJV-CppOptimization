@@ -3,7 +3,6 @@
 void GameObject::AddComponent(Component* component)
 {
 	m_components.emplace_back(component);
-	component->SetGameObject(this);
 }
 
 void GameObject::Update()
