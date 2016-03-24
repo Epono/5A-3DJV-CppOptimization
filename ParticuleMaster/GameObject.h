@@ -5,6 +5,7 @@
 
 #include "Component.h"
 #include "Transform.h"
+#include "Allocateur.h"
 
 class GameObject
 {
@@ -22,8 +23,9 @@ public:
 			component->~Component();
 	}
 
+	void* operator new(size_t size){ return Allocator::allocate(size); }
+	void operator delete(void* p) { Allocator::deallocate(p); }
 
-	GameObject* operator new(){ return Allocateur::allocate(); }
 	void AddComponent(Component* component);
 	void Update();
 };
