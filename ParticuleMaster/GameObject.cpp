@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "GameObject.h"
 
 void GameObject::AddComponent(Component* component)
