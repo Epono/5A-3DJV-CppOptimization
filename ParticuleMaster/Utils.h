@@ -1,7 +1,5 @@
 #pragma once
 
-#define CUBE_RADIUS 10
-
 struct Vec3
 {
 	float x;

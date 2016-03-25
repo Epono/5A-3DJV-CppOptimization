@@ -145,14 +145,18 @@
     <ClCompile Include="Allocateur.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MeshComponent.cpp" />
     <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="RigidComponent.cpp" />
     <ClCompile Include="ThreadManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allocateur.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="MeshComponent.h" />
     <ClInclude Include="Particle.h" />
+    <ClInclude Include="RigidComponent.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="ThreadManager.h" />
     <ClInclude Include="Transform.h" />
