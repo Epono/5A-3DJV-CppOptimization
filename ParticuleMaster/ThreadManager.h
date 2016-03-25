@@ -36,9 +36,10 @@ public:
 	ThreadManager();
 	~ThreadManager();
 	void ThreadStart();
-	void ThreadUpdate();
-	void AddTaskToList(Task _taskToAdd);
-	void Display();
+	void ThreadUpdate(int _id);
+	void AddTaskToQueue(Task _taskToAdd);
+	void RemoveTaskToQueue();
+	void Display(int _id);
 
 
 };

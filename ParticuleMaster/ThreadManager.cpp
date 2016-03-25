@@ -20,33 +20,43 @@ void ThreadManager::ThreadStart()
 	for (int i = 0; i < maxThread; ++i)
 	{
 		//ListOfThreads.push_back(std::thread(&ThreadManager::ThreadUpdate, this));
-		ListOfThreads.emplace_back(std::thread(&ThreadManager::ThreadUpdate, this));
+		ListOfThreads.emplace_back(std::thread(&ThreadManager::ThreadUpdate, this, i));
 	}
 
 	std::cout << "taille du tab thread : " << ListOfThreads.size() << " // " << ListOfThreads.capacity() << std::endl;
+
+	
 }
 
-void ThreadManager::ThreadUpdate()
+void ThreadManager::ThreadUpdate(int _id)
 {
 	//Stockage de la tache dans une variable
 	//Task actualTask = nullptr;
 	//actualTask = new Task("Test");
 
-	std::unique_lock<std::mutex>lock(threadMutex);
+	
 
 	//queueOfTask.push(*actualTask);
 	
+	
+	while (true)
+	{
+		//std::unique_lock<std::mutex> mutex(threadMutex);
+		threadMutex.lock();
+		
 
-	//while (true)
-	//{
+
 		if (!queueOfTask.empty())
 		{
-			Task actualTask = queueOfTask.front();
-			queueOfTask.pop();
 			
-
-
-
+			Task actualTask = queueOfTask.front();
+			
+					
+			queueOfTask.pop();
+			threadMutex.unlock();
+			
+			//std::unique_lock<std::mutex>unlock(threadMutex);
+						
 			//ListOfTask.pop_back();
 			//Execute the task
 			switch (actualTask.t)
@@ -84,26 +94,35 @@ void ThreadManager::ThreadUpdate()
 
 			if (actualTask.m_name == "Test")
 			{
-				Display();
+				Display(_id);
 			}
 			
 
 		}
 		else
 		{
-			std::cout << "IM WAITING !" << std::endl;
+			threadMutex.unlock();
+			std::cout << "THREAD "<< _id << " : IM WAITING ! "  << std::endl;
 		}
-	//}
+
+		
+	}
 
 }
 
-void ThreadManager::AddTaskToList(Task _taskToAdd)
+void ThreadManager::AddTaskToQueue(Task _taskToAdd)
 {
 	queueOfTask.push(_taskToAdd);
 	std::cout << "New Task" << std::endl;
 }
 
-void ThreadManager::Display()
+void ThreadManager::RemoveTaskToQueue()
 {
-	std::cout << "THREAD NUMBER : " <<  " : IM IN A TASK !" << std::endl;
+	queueOfTask.pop();
+	std::cout << "Remove Task" << std::endl;
+}
+
+void ThreadManager::Display(int _id)
+{
+	std::cout << "THREAD NUMBER : " << _id  << " : IM IN A TASK !" << std::endl;
 }
