@@ -7,7 +7,12 @@
 #include "Particle.h"
 
 #define _256k 262144
-#define _64k 65536
+#define _64k   65536
+
+enum bite
+{
+	tache1, tache2
+};
 
 // Multithreading
 // Boss Working
@@ -18,26 +23,28 @@
 // SSE
 // Spatialisation
 
-int threadAliveCounter = 0;
-int maxThread = 4;
-std::vector<std::thread> listOfThread;
-int threadcounter = 0;
-
-void CreateParticle(int _threadNumber, int _numberOfParticles)
-{
-	int numberOfParticles = _numberOfParticles;
-
-	for (int i = 0; i < numberOfParticles; ++i)
-	{
-		//std::cout << "Spawn particle number : " << i << std::endl;
-	}
-	
-	std::cout << "Thread " << _threadNumber << " finished\n";
-}
+std::vector<GameObject*> gameObjects;
 
 void main()
 {
-	ThreadManager *  myManager = new ThreadManager();
+	ThreadManager*  myManager = new ThreadManager();
+
+	while(true)
+	{
+		// Game Loop
+		// TODO
+		if(true)
+		{
+			// Update (60 times per second)
+			for each (GameObject* gameObject in gameObjects)
+			{
+				gameObject->Update();
+			}
+		}
+
+		// Render (as fast as possible)
+		// TODO
+	}
 
 	std::cout << "Appuyez sur une touche pour fermer la fenetre\n";
 	getchar();
