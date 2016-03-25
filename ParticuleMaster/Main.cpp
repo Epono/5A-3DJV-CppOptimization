@@ -30,10 +30,8 @@ void Render()
 
 void main()
 {
-
-	
-	ThreadManager *  myManager = new ThreadManager();
-	Task * actualTask = new Task("Test",Task1);
+	ThreadManager*  myManager = new ThreadManager();
+	Task* actualTask = new Task("Test",Task1);
 	myManager->AddTaskToList(*actualTask);
 	actualTask = new Task("Other", Task2);
 	myManager->AddTaskToList(*actualTask);
@@ -41,19 +39,9 @@ void main()
 	myManager->AddTaskToList(*actualTask);
 	myManager->ThreadStart();
 
-
-
-	//myManager->ThreadUpdate();
-	//std::thread tr(CreateParticle, 0, _256k);
-	
-
-
-	
-
-
-	ThreadManager*  myManager = new ThreadManager();
 	std::clock_t timeSinceLastUpdate(0);
 
+	//Allocator::create(sizeof(Particle) * _256k);
 
 	while(true)
 	{
