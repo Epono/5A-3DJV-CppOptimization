@@ -9,11 +9,6 @@
 #define _256k 262144
 #define _64k   65536
 
-enum bite
-{
-	tache1, tache2
-};
-
 // Multithreading
 // Boss Working
 // ThreadMAX 4
@@ -27,9 +22,10 @@ std::vector<GameObject*> gameObjects;
 
 void main()
 {
-	ThreadManager*  myManager = new ThreadManager();
+	ThreadManager* myManager = new ThreadManager();
+	Allocator::create(sizeof(Particle) * _256k);
 
-	while(true)
+	while(false)
 	{
 		// Game Loop
 		// TODO
@@ -38,6 +34,7 @@ void main()
 			// Update (60 times per second)
 			for each (GameObject* gameObject in gameObjects)
 			{
+				// TODO: envoyer 1/4 à chaque thread
 				gameObject->Update();
 			}
 		}
