@@ -1,18 +1,22 @@
 #pragma once
 #include <string>
+#include <iostream>
+#include "Utils.h"
 
 class Task
 {
-	public :
+public:
 	std::string m_name;
+	TaskToDo t;
 
-	Task(std::string name) 
-	{
-		m_name = name;
-	}
+	Task(std::string name, TaskToDo _t);
+	~Task();
 
-	~Task() 
-	{
-	}
-	
+	void Task1();
+	void Task2();
+	void Task3();
+	void Task4();
+	void Task5();
+
+
 };

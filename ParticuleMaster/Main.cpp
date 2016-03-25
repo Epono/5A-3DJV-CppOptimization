@@ -87,6 +87,16 @@ void main()
 {
 	
 	ThreadManager *  myManager = new ThreadManager();
+	Task * actualTask = new Task("Test",Task1);
+	myManager->AddTaskToList(*actualTask);
+	actualTask = new Task("Other", Task2);
+	myManager->AddTaskToList(*actualTask);
+	actualTask = new Task("Other", Task3);
+	myManager->AddTaskToList(*actualTask);
+	myManager->ThreadStart();
+
+
+
 	//myManager->ThreadUpdate();
 	//std::thread tr(CreateParticle, 0, _256k);
 	

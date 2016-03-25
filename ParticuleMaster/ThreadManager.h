@@ -17,23 +17,28 @@ class ThreadManager
 		AWAKE,
 		RUNNING
 	};
+
+	
+
 private:
 	int maxThread;
-	
-public :
-		std::mutex threadMutex;
-		std::vector<std::thread> ListOfThreads;
-		std::vector<Task> ListOfTask;
-		std::queue <Task> queueOfTask;
-		
-		//std::unique_lock<std::mutex> m(threadMutex);
+
+public:
+	std::mutex threadMutex;
+	std::vector<std::thread> ListOfThreads;
+	std::vector<Task> ListOfTask;
+	std::queue <Task> queueOfTask;
+
+	//TaskToDo t;
+	//std::unique_lock<std::mutex> m(threadMutex);
 
 
-		ThreadManager();
-		~ThreadManager();
-		void ThreadUpdate();
-		void AddTaskToList(Task _taskToAdd);
-		void Display();
+	ThreadManager();
+	~ThreadManager();
+	void ThreadStart();
+	void ThreadUpdate();
+	void AddTaskToList(Task _taskToAdd);
+	void Display();
 
 
 };
