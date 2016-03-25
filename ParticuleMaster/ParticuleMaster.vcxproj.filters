@@ -30,7 +30,14 @@
     <ClCompile Include="ThreadManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+
     <ClCompile Include="Task.cpp">
+
+    <ClCompile Include="RigidComponent.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshComponent.cpp">
+
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -57,6 +64,12 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="ThreadManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidComponent.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,8 @@
 
 #include "GameObject.h"
 
+#define CUBE_RADIUS 10
+
 class Particle : public GameObject
 {
 private:
